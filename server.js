@@ -139,6 +139,6 @@ app.put('/image', (req, res) => {
         })
 })
 
-app.listen(3001, () => {
-    console.log('App is running on port 3001')
+app.listen(process.env.PORT || 3001, () => {
+    console.log('App is running on port ${process.env.POR}')
 })
