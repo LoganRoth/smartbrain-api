@@ -30,7 +30,7 @@ app.get('/', (_, res) => {
             resp.status(200).json('Here')
         })
         .catch(err => {
-            res.status(400).json("Unable to connect...")
+            res.status(400).json(err)
         })
 })
 
