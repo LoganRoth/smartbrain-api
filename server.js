@@ -27,7 +27,7 @@ const db = knex(
 app.get('/', (_, res) => {
     db.select().table('users')
         .then(resp => {
-            resp.status(200).json(resp)
+            resp.status(200).json('Here')
         })
         .catch(err => {
             res.status(400).json("Unable to connect...")
