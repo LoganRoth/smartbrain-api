@@ -23,9 +23,13 @@ const db = knex(
 );
 
 app.get('/', (_, res) => {
-    res.status(200).json({
-        status: 200
-    })
+    db.select().table('users')
+        .then(resp => {
+            resp.status(200).json(resp)
+        })
+        .catch(err => {
+            res.status(400).json("Unable to connect...")
+        })
 })
 
 app.post('/signin', (req, res) => {
