@@ -9,7 +9,7 @@ app.use(express.json())
 app.use(cors())
 
 const clarifaiApp = new Clarifai.App({
-    apiKey: '7d03e1d91aec4d5e8b7428ebd47eaaa1'
+    apiKey: process.env.API_CLARIFAI
 })
 
 const db = knex(
