@@ -135,7 +135,7 @@ app.put('/image', (req, res) => {
             })
         })
         .catch(err => {
-            res.status(400).json("Error retrieving entries")
+            res.status(400).json({str: "Error retrieving entries", error: err})
 
         })
 })
