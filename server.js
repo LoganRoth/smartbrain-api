@@ -12,15 +12,13 @@ const clarifaiApp = new Clarifai.App({
     apiKey: process.env.API_CLARIFAI
 })
 
-const db = knex(
-    {
-        client: 'pg',
-        connection: {
-            connectionString: process.env.DATABASE_URL,
-            ssl: true
-        }
+const db = knex({
+    client: 'pg',
+    connection: {
+        connectionString: process.env.DATABASE_URL,
+        ssl: true
     }
-);
+});
 
 app.get('/', (_, res) => {
     db.select().table('users')
