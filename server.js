@@ -124,9 +124,9 @@ app.post('/imageurl', (req, res) => {
 })
 
 app.put('/image', (req, res) => {
-    const { id } = req.body
+    const { id, faces } = req.body
     db('users').where({ id })
-        .increment('entries', 1)
+        .increment('entries', faces)
         .returning('entries')
         .then(entryNum => {
             res.status(200).json({
