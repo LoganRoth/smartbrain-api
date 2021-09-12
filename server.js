@@ -12,6 +12,8 @@ const clarifaiApp = new Clarifai.App({
     apiKey: process.env.API_CLARIFAI
 })
 
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0
+
 const db = knex(
     {
         client: 'pg',
