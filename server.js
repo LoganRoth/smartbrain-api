@@ -126,7 +126,7 @@ app.post('/imageurl', (req, res) => {
 app.put('/image', (req, res) => {
     const { id, faces } = req.body
     db('users').where({ id })
-        .increment('entries', parseInt(faces))
+        .increment('entries', faces)
         .returning('entries')
         .then(entryNum => {
             res.status(200).json({
@@ -135,7 +135,7 @@ app.put('/image', (req, res) => {
             })
         })
         .catch(err => {
-            res.status(400).json({str: "Error retrieving entries", error: err, faces: faces})
+            res.status(400).json("Error retrieving entries")
 
         })
 })
