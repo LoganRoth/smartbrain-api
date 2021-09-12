@@ -12,8 +12,6 @@ const clarifaiApp = new Clarifai.App({
     apiKey: process.env.API_CLARIFAI
 })
 
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0
-
 const db = knex(
     {
         client: 'pg',
@@ -27,7 +25,7 @@ const db = knex(
 app.get('/', (_, res) => {
     db.select().table('users')
         .then(resp => {
-            resp.status(200).json('Here')
+            res.status(200).json(resp)
         })
         .catch(err => {
             res.status(400).json(err)
